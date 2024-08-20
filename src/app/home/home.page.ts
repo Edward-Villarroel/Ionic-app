@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
   nombre:string=""
+  niveles:any[]=[
+    {id:1,nivel:"educacion basica"},
+    {id:2,nivel:"media"},
+    {id:3,nivel:"superior"}
+  ]
 
   constructor() {}
-  
+
    mostrarNombre(){
     console.log(this.nombre)
    }

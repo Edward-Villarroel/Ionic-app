@@ -8,10 +8,20 @@
 
 <ion-content>
   <h1>registro</h1>
+
   <ion-item>
-    <ion-input type="text" label="nombre" [(ngModel)]="nombre" placeholder="escribe tu nombre"></ion-input>
+    <ion-input type="text" label="nombre" name="nombre" [(ngModel)]="nombre" placeholder="escribe tu nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Educacion</ion-label>
+    <ion-select value="Educacion" multiple="true" placeholder="selecciona tu nivel">
+    <ion-select-option *ngFor="let niv of niveles" value="niv.id">
+     {{niv.nivel}}
+    </ion-select-option>
+    </ion-select>
   </ion-item>
     <ion-button (click)="mostrarNombre()" expand="block">
       enviar
     </ion-button>
+
 </ion-content>
