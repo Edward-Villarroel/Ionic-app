@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  nombre:string=""
 
   constructor() {}
-
+  
+   mostrarNombre(){
+    console.log(this.nombre)
+   }
 }
