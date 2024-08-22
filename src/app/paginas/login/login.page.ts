@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController ,AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
    nombre:string=""
    usuario:string=""
    contrasena:string=""
-  constructor(public mensaje:ToastController, private route:Router) { }
+  constructor(public mensaje:ToastController, private route:Router, public alerta:AlertController) { }
    
 
     async mensajeExito(){
@@ -20,7 +20,18 @@ export class LoginPage implements OnInit {
           duration:2000
         });
         toast.present();
+        
 
+    }
+    async presentAlert() {
+      const alert = await this.alerta.create({
+        header: 'Alert',
+        subHeader: 'Subtitle',
+        message: 'This is an alert message.',
+        buttons: ['OK']
+      });
+    
+      await alert.present();
     }
     ingresar(){
       if(this.usuario ==="asd"&& this.contrasena==="1234"){
