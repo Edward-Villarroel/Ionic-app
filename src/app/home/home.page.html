@@ -1,27 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-      Mi aplicacion
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary">
+       <ion-title class="titulos">bienvenido</ion-title>
+    </ion-toolbar>
 
-<ion-content>
-  <h1>registro</h1>
+  </ion-header>
 
-  <ion-item>
-    <ion-input type="text" label="nombre" name="nombre" [(ngModel)]="nombre" placeholder="escribe tu nombre"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Educacion</ion-label>
-    <ion-select value="Educacion" multiple="true" placeholder="selecciona tu nivel">
-    <ion-select-option *ngFor="let niv of niveles" value="niv.id">
-     {{niv.nivel}}
-    </ion-select-option>
-    </ion-select>
-  </ion-item>
-    <ion-button (click)="mostrarNombre()" expand="block">
-      enviar
-    </ion-button>
+   <ion-content>
+    <h1 class="titulos">whatsapp 2</h1>
+    <p class="parrafos">quien es diego sniper, INVITAME MANITOOOOOOOOOO</p>
 
-</ion-content>
+   </ion-content>
+</ion-app>
