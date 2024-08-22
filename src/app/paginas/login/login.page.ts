@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -10,7 +11,7 @@ export class LoginPage implements OnInit {
    nombre:string=""
    usuario:string=""
    contrasena:string=""
-  constructor(public mensaje:ToastController) { }
+  constructor(public mensaje:ToastController, private route:Router) { }
    
 
     async mensajeExito(){
@@ -25,7 +26,8 @@ export class LoginPage implements OnInit {
       if(this.usuario ==="asd"&& this.contrasena==="1234"){
         
         console.log("inicio exitoso")
-        
+        this.mensajeExito()
+        this.route.navigate(['/home'])
       }
        else{
         console.log("informacion erronea")
