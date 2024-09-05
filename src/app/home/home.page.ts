@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import { ToastController ,AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  nombre:string=""
-  niveles:any[]=[
-    {id:1,nivel:"educacion basica"},
-    {id:2,nivel:"media"},
-    {id:3,nivel:"superior"}
-  ]
+export class HomePage implements OnInit{
+   usuario:string=""
+   contrasena:string=""
+  constructor(public mensaje:ToastController, private route:Router, public alerta:AlertController) {}
 
-  constructor() {}
-
-   mostrarNombre(){
-    console.log(this.nombre)
-   }
+   ingresar(){
+    if(this.usuario ==="asd"&& this.contrasena==="1234"){
+      this.route.navigate(['/home'])
+    }
+     else{
+      console.log("informacion erronea")
+     }
+ }
+ ngOnInit() {
+}
 }
