@@ -12,14 +12,28 @@ export class HomePage implements OnInit{
    contrasena:string=""
   constructor(public mensaje:ToastController, private route:Router, public alerta:AlertController) {}
 
-   ingresar(){
-    if(this.usuario ==="asd"&& this.contrasena==="1234"){
-      this.route.navigate(['/home'])
+  async ingresar() {
+    if (this.usuario === "asd" && this.contrasena === "1234") {
+      const alert = await this.alerta.create({
+        header: 'Éxito',  
+        message: 'Inicio de sesión completado',  
+        buttons: [{
+          text: 'OK',  
+          handler: () => {
+            this.route.navigate(['/login']);  
+          }
+        }]
+      });
+      await alert.present();  
+    } else {
+      const toast = await this.mensaje.create({
+        message: 'Usuario o contraseña incorrectos',
+        duration: 2000,
+        position: 'bottom'
+      });
+      toast.present();
     }
-     else{
-      console.log("informacion erronea")
-     }
- }
- ngOnInit() {
-}
+  }
+
+  ngOnInit() {}
 }

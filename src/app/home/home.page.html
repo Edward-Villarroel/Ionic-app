@@ -14,15 +14,15 @@
    
    
     <ion-item>
-      <ion-input type="text" label="usuario" name="usuario" placeholder="ingresa tu usuario"></ion-input>
+      <ion-input type="text" label="Usuario" name="usuario" placeholder="Ingresa tu usuario" [(ngModel)]="usuario"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-input type="password" label="contrasena" name="contrasena" placeholder="ingresa tu contraseña"></ion-input>
+      <ion-input type="password" label="Contraseña" name="contrasena" placeholder="Ingresa tu contraseña" [(ngModel)]="contrasena"></ion-input>
     </ion-item>
 
       <br>
-     <ion-button expand="block">
+     <ion-button expand="block" (click)="ingresar()">
       ingresar
   </ion-button>
 </ion-content>
