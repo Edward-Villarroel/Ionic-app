@@ -34,6 +34,10 @@ export class HomePage implements OnInit{
       toast.present();
     }
   }
+  async iniciar(){
+    this.route.navigate(['/landing-page']);  
+
+}
 
   ngOnInit() {}
 }

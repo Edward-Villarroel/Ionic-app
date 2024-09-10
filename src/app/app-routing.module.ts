@@ -8,13 +8,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'landing-page',
     pathMatch: 'full'
   },
   {
     path: 'login',
     loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule)
   },
+  
+    
+  {
+    path: 'landing-page',
+    loadChildren: () => import('./paginas/landing-page/landing-page.module').then( m => m.LandingPagePageModule)
+  },
+
 ];
 
 @NgModule({

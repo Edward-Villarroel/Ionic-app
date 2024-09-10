@@ -34,16 +34,10 @@ export class LoginPage implements OnInit {
       await alert.present();
     }
     ingresar(){
-      if(this.usuario ==="asd"&& this.contrasena==="1234"){
-        
-        console.log("inicio exitoso")
-        this.mensajeExito()
+    
         this.route.navigate(['/home'])
       }
-       else{
-        console.log("informacion erronea")
-       }
-   }
+       
   ngOnInit() {
   }
 
