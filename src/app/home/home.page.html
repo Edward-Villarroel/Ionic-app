@@ -8,23 +8,38 @@
 
    <ion-content>
     <img id="user" src="../../assets/icon/usuario.png" alt="usuario">
-    <p id="parrafos">Bienvenido</p>
+    <p id="parrafos">Inicia Sesion</p>
     
+   <form [formGroup]="formularioLogin">
+     <ion-item>
+      <ion-label position="floating">nombre</ion-label>
+      <ion-input formControlName ="nombre" min="3" max="15"></ion-input>
+      
+     </ion-item>
+     <ion-item>
+      <ion-label position="floating">contrasena</ion-label>
+      <ion-input formControlName ="password" min="3" type="password" max="10"></ion-input>
+      
+     </ion-item>
+     
+   </form>
+     
    
-   
-   
-    <ion-item>
-      <ion-input type="text" label="Usuario" name="usuario" placeholder="Ingresa tu usuario" [(ngModel)]="usuario"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-input type="password" label="Contraseña" name="contrasena" placeholder="Ingresa tu contraseña" [(ngModel)]="contrasena"></ion-input>
-    </ion-item>
+    
 
       <br>
      <ion-button expand="block" (click)="ingresar()">
       ingresar
   </ion-button>
- 
-</ion-content>
+  
+ </ion-content>
+ <ion-footer>
+    <ion-toolbar color="warning">
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="['../registro']">
+          ¿No tienes cuenta? Registrate aqui
+      </ion-button>
+    </ion-buttons>
+    </ion-toolbar>
+ </ion-footer>
 </ion-app>
