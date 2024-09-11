@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Injectable } from '@angular/core';
 import {Router} from '@angular/router';
 import { ToastController ,AlertController,} from '@ionic/angular';
-import { FormBuilder,FormGroup,Validator,FormControl, Validators } from '@angular/forms';
-
+import { FormBuilder,FormGroup,FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -25,8 +24,6 @@ export class HomePage implements OnInit{
     })
   }
   
-
-  
   async ingresar() {
     var f = this.formularioLogin.value;
     
@@ -35,6 +32,8 @@ export class HomePage implements OnInit{
     if(usuario.nombre == f.nombre && usuario.password == f.password){
       localStorage.setItem('ingresado','true');
       this.route.navigate(['./login']); 
+      localStorage.getItem('ingresado')
+      localStorage.getItem('usuario')
     }else{
       const alert = await this.alerta.create({
         header: 'Alerta',
@@ -50,6 +49,6 @@ export class HomePage implements OnInit{
      
 
 }
-
+ 
   ngOnInit() {}
 }

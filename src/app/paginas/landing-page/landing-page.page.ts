@@ -12,6 +12,8 @@ export class LandingPagePage implements OnInit {
   
   async iniciar(){
       this.route.navigate(['/login']);  
+      localStorage.getItem('usuario');
+      localStorage.getItem('ingresado');
 
   }
 

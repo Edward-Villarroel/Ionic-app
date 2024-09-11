@@ -6,12 +6,20 @@
     </ion-buttons>
     <img id="img" src="../../assets/icon/caja_vecina_logo.png" alt="caja_vecina_logo">
     <ion-button color="warning" id="button" (click)="ingresar()">
-      <img id="user"src="../../assets/icon/usuario.png" alt="usuario">
+      <img id="user"[src]='imageURL' alt="usuario">
   </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
-</ion-content>
+  <ion-footer>
+    <ion-toolbar color="warning">
+      <ion-buttons slot="end">
+        <ion-button (click)="cerrarSesion()">
+          {{cerrar}}
+      </ion-button>
+    </ion-buttons>
+    </ion-toolbar>
+ </ion-footer>
+
 </ion-app>

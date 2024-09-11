@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import { ToastController ,AlertController} from '@ionic/angular';
-
 
 @Component({
   selector: 'app-login',
@@ -9,12 +8,23 @@ import { ToastController ,AlertController} from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-   nombre:string=""
-   usuario:string=""
-   contrasena:string=""
-  constructor(public mensaje:ToastController, private route:Router, public alerta:AlertController) { }
+   imageURL:string="";
+   nombre:string="";
+   usuario:string="";
+   contrasena:string="";
+   cerrar:string="";
+  constructor( public mensaje:ToastController, private route:Router, public alerta:AlertController) {
+    this.updateImage();
+    this.msg();
+   }
    
-
+    updateImage(){
+      if (localStorage.getItem('ingresado')=='true'){
+        this.imageURL='assets/icon/logo_duoc.png';
+      }else{
+        this.imageURL='assets/icon/usuario.png'
+      }
+    }
     async mensajeExito(){
         const toast= await this.mensaje.create({
           message:'inicio de sesion exitoso',
@@ -36,9 +46,22 @@ export class LoginPage implements OnInit {
     }
     ingresar(){
     
-        this.route.navigate(['/home'])
+        this.route.navigate(['/home']);
       }
-       
+    
+    async msg(){
+      if (localStorage.getItem('ingresado')=='true'){
+        this.cerrar='cerrar sesion';
+      }else {
+        this.cerrar='';
+      }
+    }
+    
+    async cerrarSesion(){
+
+        localStorage.setItem('ingresado','false');
+        this.route.navigate(['/landing-page']);
+    }
   ngOnInit() {
   }
 
